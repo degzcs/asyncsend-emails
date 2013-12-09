@@ -1,4 +1,3 @@
-module SpaceMandrill
   class GenericRecipient
 
     include ActiveAttr::AttributeDefaults
@@ -6,7 +5,7 @@ module SpaceMandrill
     # this the object that will be wrapped
     attribute :wrapped_object
 
-    # @param wrapped_object [Model] can be Arrear, ....
+    # @param wrapped_object [Model] can be Contacts, ....
     # @return [Recipient] config with wrapped object and his parameters with the wrapped object data
     def self.wrap(wrapped_object)
       recipient = self.new
@@ -50,4 +49,3 @@ module SpaceMandrill
     end
 
   end
-end
