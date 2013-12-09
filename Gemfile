@@ -11,6 +11,12 @@ gem 'wirb'
 gem 'hirb'
 gem 'awesome_print'
 
+
+# mandrill integration
+gem 'mandrill-api'
+gem 'sidekiq'
+gem 'rerun'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
