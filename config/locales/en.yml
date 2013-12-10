@@ -3,3 +3,7 @@
 
 en:
   hello: "Hello world"
+  import_contacts: "import contracts"
+  import_csv: "import csv"
+  select_a_csv_file: "select a csv file"
+  csv_row: "csv row"

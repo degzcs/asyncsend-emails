@@ -1,0 +1,74 @@
+- content_for :js do
+  = javascript_include_tag 'double_scroll'
+  = javascript_include_tag 'modal-image'
+
+= simple_form_for @user_import, url: user_imports_path, html: {multipart: true} do |f|
+
+  .submit
+    %h1= t(:import_contacts)
+
+  .submit-buttons
+    .fleft
+      .tb
+        .fileUpload
+          = f.input :file, as: :file, label: t(:select_a_csv_file)
+          = f.submit t(:import_csv) , :class => 'btn-success'
+          .image-example-import.double-scroll-enabled
+            -#= image_tag('/images/format-import.png', :size => "950x200")
+            -##my-modal.modal
+            -#  .modal-header
+            -#    %a.close{"data-dismiss" => "modal"} ×
+            -#    %h6= t(:example_csv_import_file)
+            -#  .modal-body
+
+  -if @rejected_user_data.present?
+    .tb
+      .submit
+        .alert-block.alert-error= t(:there_are_errors_csv_import)
+      .submit-buttons.double-scroll-enabled
+        %table.no-margin
+          %tbody
+          -@rejected_user_data.sort{|a,b| a[:csv_row_number] <=> b[:csv_row_number]}.each do |rejected_user|
+            = content_tag(:tr, :class => cycle('uneven', 'even')) do
+              %td.whitout-right-padding
+                %h4.csv_row
+                  = t(:csv_row)
+                %h3.csv_row_number.number-import
+                  = rejected_user[:csv_row_number]
+              %td
+                - rejected_user[:errors].each do |error|
+                  .alert-error=  error
+                %table.table-import
+                  %thead
+                    %tr
+                      %th= t(:first_name)
+                      %th= t(:last_name)
+                      %th= t(:email)
+                      %th= t(:address)
+                      %th= t(:address2)
+                      %th= t(:telphone)
+                      %th= t(:city)
+                      %th= t(:postcode)
+                      %th= t(:company)
+                      %th= t(:job_title)
+                      %th= t(:country)
+                      %th= t(:interest)
+
+                  %tbody
+                    = content_tag(:tr, :class => cycle('uneven', 'even')) do
+                      %td= rejected_user[:first_name]
+                      %td= rejected_user[:last_name]
+                      %td= rejected_user[:email]
+                      %td= rejected_user[:address]
+                      %td= rejected_user[:address2]
+                      %td= rejected_user[:number]
+                      %td= rejected_user[:city]
+                      %td= rejected_user[:postcode]
+                      %td= rejected_user[:company]
+                      %td= rejected_user[:job_title]
+                      %td= rejected_user[:country]
+                      %td= rejected_user[:interests]
+  -#-else
+  -#.tb
+  -#  .submit
+  -#    .alert-success= t(:import_successsfully)

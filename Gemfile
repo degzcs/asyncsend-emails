@@ -20,6 +20,13 @@ gem 'rerun'
 gem "httparty"
 gem 'haml-rails'
 gem 'rails_admin'
+gem "devise"
+gem 'active_attr'
+
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'simple_form'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -49,6 +56,3 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-
-
-gem "devise"
