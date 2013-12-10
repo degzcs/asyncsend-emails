@@ -17,6 +17,10 @@ gem 'mandrill-api'
 gem 'sidekiq'
 gem 'rerun'
 
+gem "httparty"
+gem 'haml-rails'
+gem 'rails_admin'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -45,3 +49,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem "devise"

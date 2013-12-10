@@ -1,9 +1,9 @@
-module Contacts
+module Users
 # subclass to define the @ attributes your template will use
   class Recipient < GenericRecipient
 
     # VARS mapping, keys: are the API params (or parmeters) names and
-    #               values: are the methods belongs to Contact Model
+    #               values: are the methods belongs to User Model
     # IMPORTANT!!! all methods for call should be located in the Model Class (or delegated method).
     attribute :vars_mapping , default: {
         NAME: :name,
@@ -11,7 +11,7 @@ module Contacts
     }
 
     # this method allow use the Arrears Model for send its methods
-    # @return [Contact]
+    # @return [User]
     def contacts
       wrapped_object
     end
