@@ -43,7 +43,7 @@ module SimpleCSV
     # Create a new user instance from the whole data passed
     # @return [User] the new user instance
     def new_user_record_from(user_data)
-      user = User.new(email: user_data[:email], name: user_data[:name])
+      user = User.new(email: user_data[:email], name: user_data[:name], password: "temporal_password")
       user
     end
 
