@@ -3,6 +3,7 @@ class MandrillSystemOperationWorker
   sidekiq_options retry: false
 
   def perform(system_operation_id)
+    ap system_operation_id = system_operation_id["$oid"]
     system_operation = MandrillSystemOperation.find(system_operation_id)
     params =  system_operation.params
     response = system_operation.mandrill_operation.service.constantize.__send__(system_operation.method_name, params)

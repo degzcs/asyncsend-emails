@@ -7,3 +7,6 @@ en:
   import_csv: "import csv"
   select_a_csv_file: "select a csv file"
   csv_row: "csv row"
+  name: "name"
+  email: "email"
+  there_are_errors_csv_import: "there are errors csv import"

@@ -7,12 +7,11 @@ module Users
     # IMPORTANT!!! all methods for call should be located in the Model Class (or delegated method).
     attribute :vars_mapping , default: {
         NAME: :name,
-        ADDRESS: :address
     }
 
     # this method allow use the Arrears Model for send its methods
     # @return [User]
-    def contacts
+    def user
       wrapped_object
     end
 

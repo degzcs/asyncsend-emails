@@ -41,33 +41,13 @@
                 %table.table-import
                   %thead
                     %tr
-                      %th= t(:first_name)
-                      %th= t(:last_name)
+                      %th= t(:name)
                       %th= t(:email)
-                      %th= t(:address)
-                      %th= t(:address2)
-                      %th= t(:telphone)
-                      %th= t(:city)
-                      %th= t(:postcode)
-                      %th= t(:company)
-                      %th= t(:job_title)
-                      %th= t(:country)
-                      %th= t(:interest)
 
                   %tbody
                     = content_tag(:tr, :class => cycle('uneven', 'even')) do
-                      %td= rejected_user[:first_name]
-                      %td= rejected_user[:last_name]
+                      %td= rejected_user[:name]
                       %td= rejected_user[:email]
-                      %td= rejected_user[:address]
-                      %td= rejected_user[:address2]
-                      %td= rejected_user[:number]
-                      %td= rejected_user[:city]
-                      %td= rejected_user[:postcode]
-                      %td= rejected_user[:company]
-                      %td= rejected_user[:job_title]
-                      %td= rejected_user[:country]
-                      %td= rejected_user[:interests]
   -#-else
   -#.tb
   -#  .submit

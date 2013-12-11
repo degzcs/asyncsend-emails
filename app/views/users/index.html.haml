@@ -1,0 +1,20 @@
+= form_tag mandrill_send_user_email_path  do
+  .container-table
+    %h1= 'Users'
+    .submit
+      = submit_tag 'send emails', class: "btn"
+    %table.no-margin
+      %tbody
+      -@users.each do |user|
+        = content_tag(:tr, :class => cycle('uneven', 'even')) do
+          %thead
+            %tr
+              %th= ''
+              %th= t(:name)
+              %th= t(:email)
+
+          %tbody
+            = content_tag(:tr, :class => cycle('uneven', 'even')) do
+              %td= check_box_tag 'emailing[user_ids][]', user.id, false, :class => 'users_ids cb'
+              %td= user.name
+              %td= user.email

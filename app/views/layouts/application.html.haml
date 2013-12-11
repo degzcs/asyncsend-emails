@@ -7,4 +7,13 @@
     = csrf_meta_tags
     = yield :js
   %body
-    = yield
+    .container
+      - if notice or alert or flash[:error]
+        #flash-messages
+          - if notice
+            %p.notice= notice
+          - if alert
+            %p.alert= alert
+          - if flash[:error]
+            %p.error= flash[:error]
+      = yield

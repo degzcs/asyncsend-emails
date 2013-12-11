@@ -39,4 +39,8 @@ class User
   # field :authentication_token, :type => String
   field :name, type: String
   field :email, type: String
+
+  def primary_email_value
+    self.email
+  end
 end

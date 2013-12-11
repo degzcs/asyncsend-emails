@@ -70,7 +70,6 @@ module SimpleCSV
         valid_data = complete_email_list.include? user_data[:email]
         if valid_data
           user_data[:errors] << "The Email already exists!"
-          user_data = join_interests user_data
           @rejected_user_data << user_data
         end
         valid_data
