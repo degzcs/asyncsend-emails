@@ -71,7 +71,7 @@ module Users
         @mailer = Mailer.setup(subject: 'CodeScrum Invitation',
                                               from_name: default_from_name,
                                               from_email: default_from_email,
-                                              template: 'Opt In Out Mailing',
+                                              template: 'rails_girls_template',
                                               global_merge_vars: default_global_merge_vars)
         @mailer.send_one!(recipient)
       end

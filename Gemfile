@@ -18,7 +18,6 @@ gem 'sidekiq'
 gem 'rerun'
 
 gem "httparty"
-gem 'haml-rails'
 gem 'rails_admin'
 gem "devise"
 gem 'active_attr'
