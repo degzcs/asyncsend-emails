@@ -1,3 +1,4 @@
+module SendEmailMandrill
   class GenericRecipient
 
     include ActiveAttr::AttributeDefaults
@@ -23,7 +24,19 @@
 
     # @return [Array] that containt the vars configured with the recipient info
     def vars
-      @vars ||= vars_mapping.map{|var_name, method_name| {name: var_name, content: wrapped_object.try(method_name).to_s}}
+      @vars ||= vars_mapping.map do|var_name, method_name|
+        if method_name.is_a? Symbol
+          {name: var_name, content: wrapped_object.try(method_name).to_s}
+        else
+          {name: var_name, content: self.try(method_name).to_s}
+        end
+      end
+    end
+
+    # @param var_name [Symbol] should be like appears in recipient vars
+    # @return [String] whit var value
+    def var_value(var_name)
+      vars.map{|var| var[:content] if var[:name].eql? var_name }.flatten.compact.first
     end
 
     # @return [Hash] that containt recipient rcpt(email) and vars[Array] configured
@@ -49,3 +62,4 @@
     end
 
   end
+end

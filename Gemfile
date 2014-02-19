@@ -25,7 +25,7 @@ gem 'active_attr'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
-gem "twitter-bootstrap-rails"
+gem 'bootstrap-sass'#, '~> 3.0.3.0' # must specify version
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,7 +39,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

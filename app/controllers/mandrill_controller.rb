@@ -39,7 +39,7 @@ class MandrillController < ApplicationController
   def send_user_email
     #ap params[:emailing]
     flash[:notice] = "sending mails ..."
-    ::Users::Service.async_send_templates_to_users(params[:emailing][:user_ids])
+    SendEmailMandrill::Users::Service.async_send_templates_to_users(params[:emailing][:user_ids])
     redirect_to :back
   end
 

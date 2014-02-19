@@ -1,4 +1,4 @@
-module SpaceMandrill
+module SendEmailMandrill
   class OfflineTemplate < AbstractController::Base
     # Include all the concerns we need to make this work
     include AbstractController::Logger
