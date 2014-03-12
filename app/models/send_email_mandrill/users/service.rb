@@ -49,9 +49,9 @@ module SendEmailMandrill
         # @param users [Array] all users selected by the User
         # @return ...
         def send_template(params)
-          @users ||= filter_users(params)
+          users ||= filter_users(params)
           ap params
-          @users.each do |user|
+          users.each do |user|
             async_send_template(params[:operation_id], user.id)
           end
         end
@@ -67,8 +67,8 @@ module SendEmailMandrill
         #             - [String] status the sending status of the recipient - either "sent", "queued", "rejected", or "invalid"
         #             - [String] reject_reason the reason for the rejection if the recipient status is "rejected"
         def send_template_to(params)
-          users = @users.select{|user| user.id.eql? params['user_id']}
-          recipient = recipients_from_user(users.first)
+          user = User.find(params['user_id'])
+          recipient = recipients_from_user(user)
           @mailer = Mailer.setup(subject: 'CodeScrum Invitation',
                                  from_name: default_from_name,
                                  from_email: default_from_email,
@@ -101,8 +101,8 @@ module SendEmailMandrill
           users.select{|user| has_email?(user)}.map(&:id)
         end
 
-        # @param params [Hash] with all arrears ids selected by Perfomer (current user)
-        # @return [Array] Arrears filtered
+        # @param params [Hash] with all users ids selected by Performer (current user)
+        # @return [Array] Users filtered
         def filter_users(params)
           User.find(params['user_ids'] )
         end
