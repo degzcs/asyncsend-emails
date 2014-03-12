@@ -1,10 +1,5 @@
 
 defaults: &defaults
-  mailchimp_api_key: "MAILCHIMP_API_KEY"
-  mailchimp_list_name: "MAILCHIMP LIST_NAME (exacly as it appears in your MailChimp account)" # maybe not really needed in this project...
-  mailchimp_list_id: "MAILCHIMP_LIST_ID" #YOUR MAILCHIMP LIST ID # maybe not really needed in this project... (list id and name are both specified for optimization in some cases)
-  mailchimp_activate: true
-
   mandrill_api_key: "MANDRILL_API_KEY" # REQUIRED!
 
 development:
