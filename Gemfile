@@ -7,9 +7,6 @@ gem 'rails', '3.2.15'
 
 gem 'mongoid'#, git: 'https://github.com/mongoid/mongoid.git'
 gem 'bson_ext'
-gem 'wirb'
-gem 'hirb'
-gem 'awesome_print'
 
 
 # mandrill integration
@@ -38,6 +35,24 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'rspec-rails'
+  gem "capybara"
+  gem "capybara-webkit"
+  gem 'mongoid-rspec'
+  gem 'mongoid-rspec-callbacks'
+end
+
+group :development, :test do
+  gem 'faker'
+  gem "database_cleaner"
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'nifty-generators'
+  gem 'jazz_hands'
 end
 
 
