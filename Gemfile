@@ -26,6 +26,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'bootstrap-sass'#, '~> 3.0.3.0' # must specify version
+gem 'quiet_assets'
 
 # Gems used only for assets and not required
 # in production environments by default.
