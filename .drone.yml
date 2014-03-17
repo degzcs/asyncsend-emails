@@ -1,0 +1,19 @@
+image: bradrydzewski/ruby:1.9.3
+script:
+  - sudo chown ubuntu:ubuntu /tmp/bundler
+  - bundle install --path=/tmp/bundler
+  - cp config/mongoid.drone.yml config/mongoid.yml
+  - cp config/app_config.yml.example config/app_config.yml
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake db:setup
+  - bundle exec rspec spec
+cache:
+  - /tmp/bundler
+services:
+  - mongodb
+notify:
+  email:
+    recipients:
+      - diego.gomez@codescrum.com
+      - development@codescrum.com
