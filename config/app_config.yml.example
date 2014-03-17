@@ -1,6 +1,6 @@
 
 defaults: &defaults
-  mandrill_api_key: "MANDRILL_API_KEY" # REQUIRED!
+  mandrill_api_key: "9Z1Huu8ClEPaLlPbXs26kw" # REQUIRED!
 
 development:
   <<: *defaults
