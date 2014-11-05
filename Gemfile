@@ -45,6 +45,7 @@ group :test do
   gem "capybara-webkit"
   gem 'mongoid-rspec'
   gem 'mongoid-rspec-callbacks'
+  gem 'ci_reporter'
 end
 
 group :development, :test do
